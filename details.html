@@ -1,0 +1,45 @@
+<?php 
+
+  $reg_name = "/^[a-zA-Z]([a-zA-Z ]{1,})?[a-zA-Z]$/";
+  $reg_mob = "/^[1-9][0-9]{9}$/";
+  $reg_address = "/^[a-zA-Z]([a-zA-Z ]{1,})?[a-zA-Z]$/";
+  $reg_mail = "/^([a-zA-Z]([a-zA-Z0-9_\.]{1,})?[a-zA-Z0-9])@([a-zA-Z0-9]([a-zA-Z0-9]{1,})?[a-zA-Z0-9])\.([a-zA-Z]([a-zA-Z]{1,})?[a-zA-Z])(\.[a-zA-Z][a-zA-Z])?$/";
+
+
+  
+  $result=preg_match($reg_name,$_POST['Name']);
+  $result1=preg_match($reg_mob,$_POST['Mobile']);
+  $result2=preg_match($reg_address,$_POST['Address']);
+  $result3=preg_match($reg_mail,$_POST['Email']);
+
+
+  if(!$result)
+  {
+    echo "invalid username";
+  }
+  else if(!$result1) 
+  {
+    echo "invalid mobile number";
+    # code...
+  }
+   else if(!$result2) 
+  {
+    echo "invalid address";
+    # code...
+  }
+  else if(!$result3) 
+  {
+    echo "invalid mail";
+    # code...
+  }
+  else
+  {
+      echo "valid";
+  }
+
+  echo $_POST['Name'];
+  echo $_POST['Mobile'];
+  echo $_POST['Address'];
+  echo $_POST['Email'];
+
+ ?>
